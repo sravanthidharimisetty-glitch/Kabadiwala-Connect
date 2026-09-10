@@ -1,0 +1,382 @@
+.batch-page {
+  min-height: 100vh;
+  background: #f5f7f6;
+  color: #17201b;
+}
+
+.batch-header {
+  height: 72px;
+  padding: 0 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  border-bottom: 1px solid #e3e8e5;
+}
+
+.batch-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.batch-logo > span {
+  font-size: 30px;
+}
+
+.batch-logo strong {
+  display: block;
+  font-size: 18px;
+}
+
+.batch-logo small {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 3px;
+  font-weight: 800;
+  color: #758078;
+}
+
+.batch-home-btn {
+  padding: 10px 18px;
+  border: 1px solid #dce3df;
+  border-radius: 9px;
+  background: white;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.batch-main {
+  width: 88%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 45px 0 60px;
+}
+
+.batch-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.batch-label,
+.journey-label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 800;
+  color: #718078;
+}
+
+.batch-hero h1 {
+  margin: 10px 0;
+  font-size: 38px;
+}
+
+.batch-hero p {
+  margin: 0;
+  color: #69756e;
+}
+
+.batch-verified {
+  padding: 10px 15px;
+  border-radius: 25px;
+  background: #e8f7ec;
+  color: #28733f;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.batch-layout {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 22px;
+}
+
+.batch-card,
+.journey-card {
+  background: white;
+  border: 1px solid #e1e8e3;
+  border-radius: 17px;
+  padding: 25px;
+}
+
+.batch-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.batch-card-top span {
+  font-size: 10px;
+  font-weight: 800;
+  color: #77817b;
+  letter-spacing: 1.5px;
+}
+
+.batch-card-top h2 {
+  margin: 7px 0 0;
+  font-size: 21px;
+}
+
+.batch-status {
+  padding: 8px 12px;
+  border-radius: 20px;
+  background: #fff6df;
+  color: #987116;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.qr-section {
+  display: flex;
+  gap: 25px;
+  margin-top: 28px;
+  padding: 22px;
+  border-radius: 14px;
+  background: #f7f9f8;
+}
+
+.qr-placeholder {
+  min-width: 150px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #dfe6e1;
+}
+
+.qr-pattern {
+  width: 90px;
+  height: 90px;
+  display: grid;
+  place-items: center;
+  border: 7px solid #17201b;
+  background: white;
+}
+
+.qr-pattern span {
+  font-size: 65px;
+  line-height: 1;
+}
+
+.qr-placeholder small {
+  margin-top: 8px;
+  font-size: 9px;
+  font-weight: 800;
+  color: #68746d;
+  letter-spacing: 1px;
+}
+
+.batch-information {
+  flex: 1;
+  display: grid;
+  gap: 13px;
+}
+
+.info-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.info-row > span {
+  font-size: 18px;
+}
+
+.info-row small,
+.info-row strong {
+  display: block;
+}
+
+.info-row small {
+  font-size: 9px;
+  color: #7a847e;
+  letter-spacing: 1px;
+}
+
+.info-row strong {
+  margin-top: 2px;
+  font-size: 13px;
+}
+
+.pickup-reference {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid #edf0ee;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pickup-reference span {
+  font-size: 10px;
+  color: #7a847e;
+  font-weight: 800;
+}
+
+.pickup-reference strong {
+  font-size: 12px;
+}
+
+.journey-card h2 {
+  margin: 8px 0 25px;
+}
+
+.journey-list {
+  position: relative;
+}
+
+.journey-item {
+  display: flex;
+  gap: 15px;
+  position: relative;
+  min-height: 72px;
+}
+
+.journey-marker {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #edf1ee;
+  color: #7b847f;
+  font-size: 12px;
+  font-weight: 800;
+  z-index: 2;
+}
+
+.journey-item.completed .journey-marker {
+  background: #247340;
+  color: white;
+}
+
+.journey-line {
+  position: absolute;
+  left: 15px;
+  top: 32px;
+  width: 2px;
+  height: 55px;
+  background: #dfe5e1;
+}
+
+.completed-line {
+  background: #247340;
+}
+
+.journey-content strong,
+.journey-content small {
+  display: block;
+}
+
+.journey-content strong {
+  font-size: 14px;
+}
+
+.journey-content small {
+  margin-top: 4px;
+  color: #78827c;
+  line-height: 1.4;
+}
+
+.current-batch-status {
+  margin-top: 10px;
+  padding: 17px;
+  border-radius: 12px;
+  background: #f1f7f3;
+}
+
+.current-batch-status small {
+  display: block;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #6f7c74;
+}
+
+.current-batch-status strong {
+  display: block;
+  margin-top: 7px;
+  color: #28733f;
+}
+
+.current-batch-status p {
+  margin: 6px 0 0;
+  color: #69756e;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.trust-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.trust-section > div {
+  display: flex;
+  gap: 13px;
+  padding: 22px;
+  background: white;
+  border: 1px solid #e1e8e3;
+  border-radius: 15px;
+}
+
+.trust-section > div > span {
+  font-size: 23px;
+}
+
+.trust-section strong {
+  font-size: 15px;
+}
+
+.trust-section p {
+  margin: 6px 0 0;
+  color: #748078;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+@media (max-width: 850px) {
+  .batch-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .trust-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .batch-main {
+    width: 92%;
+    padding-top: 30px;
+  }
+
+  .batch-hero {
+    align-items: flex-start;
+    gap: 15px;
+    flex-direction: column;
+  }
+
+  .batch-hero h1 {
+    font-size: 29px;
+  }
+
+  .qr-section {
+    flex-direction: column;
+  }
+
+  .qr-placeholder {
+    width: 150px;
+  }
+
+  .batch-header {
+    padding: 0 4%;
+  }
+}

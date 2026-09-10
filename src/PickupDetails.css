@@ -1,0 +1,507 @@
+/* ========================================
+   KABADIWALA CONNECT
+   PICKUP DETAILS PAGE
+======================================== */
+
+.pickup-page {
+  min-height: 100vh;
+  background: #f4f8f5;
+  color: #17231d;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ========================================
+   HEADER
+======================================== */
+
+.pickup-header {
+  height: 76px;
+  background: #ffffff;
+  border-bottom: 1px solid #e1e9e4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 7%;
+  box-sizing: border-box;
+}
+
+.pickup-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pickup-logo > span {
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
+  background: #e7f6ed;
+  color: #16864a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+}
+
+.pickup-logo strong {
+  display: block;
+  font-size: 19px;
+  letter-spacing: -0.4px;
+}
+
+.pickup-logo small {
+  display: block;
+  margin-top: 3px;
+  color: #16864a;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.back-btn {
+  border: 1px solid #d6e1da;
+  background: #ffffff;
+  color: #304238;
+  padding: 11px 18px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.back-btn:hover {
+  background: #edf8f1;
+  border-color: #9bc8ac;
+  transform: translateY(-1px);
+}
+
+/* ========================================
+   MAIN
+======================================== */
+
+.pickup-main {
+  width: min(1100px, 90%);
+  margin: 0 auto;
+  padding: 65px 0 80px;
+}
+
+/* ========================================
+   TITLE
+======================================== */
+
+.pickup-title {
+  margin-bottom: 38px;
+}
+
+.pickup-title > span {
+  color: #16864a;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.pickup-title h1 {
+  margin: 10px 0 13px;
+  font-size: clamp(34px, 5vw, 52px);
+  line-height: 1.08;
+  letter-spacing: -1.8px;
+}
+
+.pickup-title p {
+  max-width: 680px;
+  margin: 0;
+  color: #68756e;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* ========================================
+   TWO COLUMN LAYOUT
+======================================== */
+
+.pickup-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 0.85fr;
+  gap: 26px;
+  align-items: start;
+}
+
+/* ========================================
+   FORM CARD
+======================================== */
+
+.pickup-card {
+  background: #ffffff;
+  border: 1px solid #e0e9e3;
+  border-radius: 22px;
+  padding: 34px;
+  box-shadow: 0 15px 40px rgba(25, 60, 42, 0.08);
+}
+
+.pickup-card h2 {
+  margin: 0 0 28px;
+  font-size: 25px;
+  letter-spacing: -0.5px;
+}
+
+.pickup-card label {
+  display: block;
+  margin: 0 0 8px;
+  color: #34443b;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.pickup-card textarea,
+.pickup-card input,
+.pickup-card select {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #d5e1da;
+  background: #fbfdfc;
+  border-radius: 11px;
+  padding: 13px 14px;
+  color: #17231d;
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+  transition: 0.2s ease;
+}
+
+.pickup-card textarea {
+  min-height: 110px;
+  resize: vertical;
+  margin-bottom: 23px;
+}
+
+.pickup-card input,
+.pickup-card select {
+  height: 49px;
+}
+
+.pickup-card textarea::placeholder,
+.pickup-card input::placeholder {
+  color: #9aa69f;
+}
+
+.pickup-card textarea:focus,
+.pickup-card input:focus,
+.pickup-card select:focus {
+  border-color: #2ca766;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(44, 167, 102, 0.11);
+}
+
+/* ========================================
+   DATE + TIME
+======================================== */
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 17px;
+  margin-bottom: 23px;
+}
+
+.form-row label {
+  margin-bottom: 8px;
+}
+
+/* ========================================
+   CONFIRM BUTTON
+======================================== */
+
+.confirm-btn {
+  width: 100%;
+  margin-top: 26px;
+  border: none;
+  border-radius: 12px;
+  padding: 16px 20px;
+  background: #16864a;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.confirm-btn:hover {
+  background: #106c3b;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(22, 134, 74, 0.20);
+}
+
+.confirm-btn:active {
+  transform: translateY(0);
+}
+
+/* ========================================
+   SUMMARY CARD
+======================================== */
+
+.summary-card {
+  background: #10231a;
+  color: #ffffff;
+  border-radius: 22px;
+  padding: 34px;
+  box-shadow: 0 15px 40px rgba(16, 35, 26, 0.17);
+}
+
+.summary-label {
+  color: #79d59e;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.summary-card h2 {
+  margin: 10px 0 28px;
+  font-size: 28px;
+  letter-spacing: -0.5px;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 17px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.summary-item span {
+  color: #aebbb4;
+  font-size: 14px;
+}
+
+.summary-item strong {
+  color: #ffffff;
+  font-size: 15px;
+  text-align: right;
+}
+
+.summary-divider {
+  height: 1px;
+  margin: 10px 0 22px;
+}
+
+.secure-note {
+  color: #aebbb4;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* ========================================
+   CONFIRMATION PAGE
+======================================== */
+
+.confirmation-card {
+  max-width: 650px;
+  margin: 25px auto 0;
+  padding: 55px 45px;
+  background: #ffffff;
+  border: 1px solid #dfe9e3;
+  border-radius: 24px;
+  text-align: center;
+  box-shadow: 0 18px 55px rgba(30, 60, 45, 0.11);
+}
+
+.confirmation-icon {
+  width: 74px;
+  height: 74px;
+  margin: 0 auto 22px;
+  border-radius: 50%;
+  background: #e5f7ec;
+  color: #16864a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  font-weight: 900;
+}
+
+.confirmation-card > span {
+  color: #16864a;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.confirmation-card h1 {
+  margin: 12px 0 13px;
+  font-size: 38px;
+  letter-spacing: -1.2px;
+}
+
+.confirmation-card > p {
+  max-width: 510px;
+  margin: 0 auto;
+  color: #68756e;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* ========================================
+   PICKUP ID
+======================================== */
+
+.pickup-id {
+  margin: 30px auto 18px;
+  padding: 19px;
+  max-width: 300px;
+  background: #f4f8f5;
+  border: 1px dashed #9fc6ad;
+  border-radius: 14px;
+}
+
+.pickup-id small {
+  display: block;
+  color: #738078;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 7px;
+}
+
+.pickup-id strong {
+  color: #17231d;
+  font-size: 22px;
+  letter-spacing: 0.5px;
+}
+
+/* ========================================
+   STATUS
+======================================== */
+
+.status-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 17px;
+  border-radius: 30px;
+  background: #fff7df;
+  color: #8a6816;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.status-box span {
+  color: #e2a900;
+  font-size: 12px;
+}
+
+/* ========================================
+   DASHBOARD BUTTON
+======================================== */
+
+.dashboard-btn {
+  display: block;
+  width: 100%;
+  margin-top: 29px;
+  border: none;
+  border-radius: 12px;
+  padding: 15px 20px;
+  background: #16864a;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.dashboard-btn:hover {
+  background: #106c3b;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(22, 134, 74, 0.20);
+}
+
+/* ========================================
+   RESPONSIVE TABLET
+======================================== */
+
+@media (max-width: 800px) {
+
+  .pickup-header {
+    padding: 0 5%;
+  }
+
+  .pickup-main {
+    width: 92%;
+    padding: 45px 0 60px;
+  }
+
+  .pickup-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-card {
+    order: 2;
+  }
+
+}
+
+/* ========================================
+   RESPONSIVE MOBILE
+======================================== */
+
+@media (max-width: 550px) {
+
+  .pickup-header {
+    height: 68px;
+  }
+
+  .pickup-logo > span {
+    width: 39px;
+    height: 39px;
+    font-size: 22px;
+  }
+
+  .pickup-logo strong {
+    font-size: 16px;
+  }
+
+  .pickup-logo small {
+    font-size: 9px;
+  }
+
+  .back-btn {
+    padding: 8px 11px;
+    font-size: 12px;
+  }
+
+  .pickup-title h1 {
+    font-size: 32px;
+  }
+
+  .pickup-title p {
+    font-size: 14px;
+  }
+
+  .pickup-card,
+  .summary-card {
+    padding: 24px;
+    border-radius: 17px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .confirmation-card {
+    padding: 40px 22px;
+    border-radius: 18px;
+  }
+
+  .confirmation-card h1 {
+    font-size: 29px;
+  }
+
+  .confirmation-icon {
+    width: 64px;
+    height: 64px;
+    font-size: 30px;
+  }
+
+}

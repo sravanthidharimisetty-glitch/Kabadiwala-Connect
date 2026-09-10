@@ -1,0 +1,412 @@
+.recycler-page {
+  min-height: 100vh;
+  background: #f6f8f7;
+  color: #17201b;
+}
+
+.recycler-header {
+  height: 76px;
+  background: white;
+  border-bottom: 1px solid #e4e9e6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 7%;
+}
+
+.recycler-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.recycler-logo > span {
+  font-size: 30px;
+}
+
+.recycler-logo strong {
+  display: block;
+  font-size: 18px;
+}
+
+.recycler-logo small {
+  display: block;
+  letter-spacing: 3px;
+  font-size: 9px;
+  font-weight: 700;
+  color: #6c766f;
+}
+
+.recycler-back {
+  border: 1px solid #d9dfdc;
+  background: white;
+  padding: 10px 17px;
+  border-radius: 9px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.recycler-main {
+  width: 86%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 55px 0;
+}
+
+.recycler-welcome {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+}
+
+.recycler-label,
+.batch-tag,
+.recycler-status-label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 800;
+  color: #66716a;
+}
+
+.recycler-welcome h1 {
+  font-size: 42px;
+  margin: 10px 0;
+  letter-spacing: -1px;
+}
+
+.recycler-welcome p {
+  color: #68736c;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.recycler-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 22px;
+  background: #e9f2ec;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 38px;
+}
+
+.recycler-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 25px;
+}
+
+.recycler-stat {
+  background: white;
+  border: 1px solid #e4e9e6;
+  border-radius: 16px;
+  padding: 22px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.recycler-stat > span {
+  font-size: 27px;
+}
+
+.recycler-stat strong {
+  display: block;
+  font-size: 24px;
+}
+
+.recycler-stat small {
+  color: #737d77;
+}
+
+.recycler-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 22px;
+}
+
+.batch-details-card,
+.recycler-status-card {
+  background: white;
+  border: 1px solid #e2e8e4;
+  border-radius: 18px;
+  padding: 30px;
+}
+
+.batch-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.batch-top h2 {
+  margin: 9px 0 0;
+  font-size: 24px;
+}
+
+.incoming-badge {
+  background: #fff6df;
+  color: #9a6b00;
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.material-box {
+  margin: 25px 0;
+  padding: 20px;
+  background: #f5f8f6;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.material-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+}
+
+.material-box span,
+.recycler-detail small {
+  display: block;
+  color: #77817b;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.material-box strong {
+  display: block;
+  margin-top: 4px;
+}
+
+.material-weight {
+  margin-left: auto;
+  text-align: right;
+}
+
+.recycler-details {
+  display: grid;
+  gap: 18px;
+}
+
+.recycler-detail {
+  display: flex;
+  gap: 13px;
+  align-items: center;
+}
+
+.recycler-detail > span {
+  font-size: 20px;
+}
+
+.recycler-detail strong {
+  display: block;
+  margin-top: 4px;
+}
+
+.recycler-actions {
+  margin-top: 25px;
+}
+
+.receive-btn,
+.processing-btn,
+.recycled-btn {
+  width: 100%;
+  border: none;
+  padding: 14px;
+  border-radius: 10px;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.receive-btn {
+  background: #1f2937;
+}
+
+.processing-btn {
+  background: #315d45;
+}
+
+.recycled-btn {
+  background: #176b4d;
+}
+
+.recycler-status-card h2 {
+  margin: 8px 0 25px;
+}
+
+.recycler-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.recycler-timeline-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.recycler-timeline-item > span {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #edf1ee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.recycler-timeline-item.active > span {
+  background: #dceee3;
+  color: #176b4d;
+}
+
+.recycler-timeline-item strong {
+  display: block;
+}
+
+.recycler-timeline-item small {
+  display: block;
+  color: #78817b;
+  margin-top: 4px;
+}
+
+.recycler-current-status {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid #e5e9e6;
+}
+
+.recycler-current-status small {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: #7a847e;
+}
+
+.recycler-current-status strong {
+  display: block;
+  margin-top: 7px;
+}
+
+.recycling-completed {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 15px;
+  border-radius: 12px;
+  background: #e8f5ed;
+  color: #176b4d;
+}
+
+.recycling-completed > span {
+  width: 32px;
+  height: 32px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+}
+
+.recycling-completed strong {
+  display: block;
+}
+
+.recycling-completed small {
+  display: block;
+  margin-top: 4px;
+  color: #527061;
+}
+
+.recycler-info {
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.recycler-info > div {
+  background: white;
+  border: 1px solid #e2e8e4;
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  gap: 13px;
+}
+
+.recycler-info > div > span {
+  font-size: 23px;
+}
+
+.recycler-info strong {
+  display: block;
+}
+
+.recycler-info p {
+  margin: 5px 0 0;
+  color: #737d77;
+  font-size: 13px;
+}
+
+@media (max-width: 850px) {
+  .recycler-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .recycler-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .recycler-info {
+    grid-template-columns: 1fr;
+  }
+
+  .recycler-welcome h1 {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 600px) {
+  .recycler-header {
+    padding: 0 20px;
+  }
+
+  .recycler-main {
+    width: 90%;
+    padding: 35px 0;
+  }
+
+  .recycler-welcome {
+    align-items: flex-start;
+  }
+
+  .recycler-avatar {
+    display: none;
+  }
+
+  .batch-details-card,
+  .recycler-status-card {
+    padding: 20px;
+  }
+}
