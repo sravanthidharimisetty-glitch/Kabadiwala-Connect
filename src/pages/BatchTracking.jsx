@@ -59,7 +59,8 @@ function BatchTracking() {
         recyclerStatus === 'Recycling Completed'
           ? 'Recycling completed successfully'
           : 'Recycling pending',
-      completed: recyclerStatus === 'Recycling Completed',
+      completed:
+        recyclerStatus === 'Recycling Completed',
     },
   ]
 
@@ -70,12 +71,14 @@ function BatchTracking() {
       <header className="batch-header">
 
         <div className="batch-logo">
+
           <span>♻</span>
 
           <div>
             <strong>Kabadiwala</strong>
             <small>CONNECT</small>
           </div>
+
         </div>
 
         <button
@@ -95,16 +98,20 @@ function BatchTracking() {
         <section className="batch-hero">
 
           <div>
+
             <span className="batch-label">
               DIGITAL MATERIAL TRACEABILITY
             </span>
 
-            <h1>Track your scrap journey.</h1>
+            <h1>
+              Track your scrap journey.
+            </h1>
 
             <p>
               Follow this material batch from collection
               to verified recycling.
             </p>
+
           </div>
 
           <div className="batch-verified">
@@ -123,15 +130,23 @@ function BatchTracking() {
             <div className="batch-card-top">
 
               <div>
+
                 <span>BATCH ID</span>
-                <h2>{batch.batchId}</h2>
+
+                <h2>
+                  {batch.batchId}
+                </h2>
+
               </div>
 
               <div className="batch-status">
+
                 ●{' '}
+
                 {recyclerStatus === 'Incoming Batch'
                   ? 'In Transit'
                   : recyclerStatus}
+
               </div>
 
             </div>
@@ -152,6 +167,14 @@ function BatchTracking() {
                   SCAN TO VERIFY
                 </small>
 
+                {/* QR SCANNER BUTTON */}
+                <button
+                  className="scan-qr-btn"
+                  onClick={() => navigate('/qr-scanner')}
+                >
+                  📷 Scan QR Code
+                </button>
+
               </div>
 
 
@@ -164,7 +187,9 @@ function BatchTracking() {
 
                   <div>
                     <small>MATERIAL</small>
-                    <strong>{batch.material}</strong>
+                    <strong>
+                      {batch.material}
+                    </strong>
                   </div>
 
                 </div>
@@ -176,7 +201,9 @@ function BatchTracking() {
 
                   <div>
                     <small>WEIGHT</small>
-                    <strong>{batch.weight}</strong>
+                    <strong>
+                      {batch.weight}
+                    </strong>
                   </div>
 
                 </div>
@@ -188,7 +215,9 @@ function BatchTracking() {
 
                   <div>
                     <small>VALUE</small>
-                    <strong>{batch.value}</strong>
+                    <strong>
+                      {batch.value}
+                    </strong>
                   </div>
 
                 </div>
@@ -200,7 +229,9 @@ function BatchTracking() {
 
                   <div>
                     <small>COLLECTOR</small>
-                    <strong>{batch.collector}</strong>
+                    <strong>
+                      {batch.collector}
+                    </strong>
                   </div>
 
                 </div>
@@ -212,7 +243,9 @@ function BatchTracking() {
 
                   <div>
                     <small>LOCATION</small>
-                    <strong>{batch.location}</strong>
+                    <strong>
+                      {batch.location}
+                    </strong>
                   </div>
 
                 </div>
@@ -225,7 +258,9 @@ function BatchTracking() {
             {/* PICKUP REFERENCE */}
             <div className="pickup-reference">
 
-              <span>PICKUP REFERENCE</span>
+              <span>
+                PICKUP REFERENCE
+              </span>
 
               <strong>
                 {batch.pickupId}
@@ -254,7 +289,9 @@ function BatchTracking() {
 
                 <div
                   className={`journey-item ${
-                    item.completed ? 'completed' : ''
+                    item.completed
+                      ? 'completed'
+                      : ''
                   }`}
                   key={item.title}
                 >
@@ -304,11 +341,13 @@ function BatchTracking() {
               </small>
 
               <strong>
+
                 ●{' '}
 
                 {recyclerStatus === 'Incoming Batch'
                   ? 'Collection Centre'
                   : recyclerStatus}
+
               </strong>
 
 

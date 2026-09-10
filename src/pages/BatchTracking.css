@@ -380,3 +380,18 @@
     padding: 0 4%;
   }
 }
+
+.scan-qr-btn {
+  margin-top: 12px;
+  border: 0;
+  background: #1f7a45;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 9px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.scan-qr-btn:hover {
+  opacity: 0.9;
+}

@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom'
 import './App.css'
+
 import CitizenDashboard from './pages/CitizenDashboard'
 import PickupDetails from './PickupDetails'
 import CollectorDashboard from './pages/CollectorDashboard'
@@ -7,6 +8,7 @@ import RecyclerDashboard from './pages/RecyclerDashboard'
 import BatchTracking from './pages/BatchTracking'
 import AdminDashboard from './pages/AdminDashboard'
 import Login from './pages/Login'
+import QRScanner from './pages/QRScanner'
 
 
 function Home() {
@@ -53,9 +55,10 @@ function Home() {
         </div>
 
 
+        {/* LOGIN - FIXED */}
         <button
           className="login-btn"
-          onClick={() => navigate('/citizen')}
+          onClick={() => navigate('/login')}
         >
           Login
         </button>
@@ -527,7 +530,13 @@ function App() {
           path="/"
           element={<Home />}
         />
-        <Route path="/login" element={<Login />} />
+
+
+        {/* LOGIN */}
+        <Route
+          path="/login"
+          element={<Login />}
+        />
 
 
         {/* CITIZEN DASHBOARD */}
@@ -542,26 +551,44 @@ function App() {
           path="/pickup-details"
           element={<PickupDetails />}
         />
+
+
         {/* COLLECTOR DASHBOARD */}
-<Route
-  path="/collector"
-  element={<CollectorDashboard />}
-/>
-<Route
-  path="/recycler"
-  element={<RecyclerDashboard />}
-/>
-<Route
-  path="/admin"
-  element={<AdminDashboard />}
-/>
-<Route
-  path="/batch-tracking"
-  element={<BatchTracking />}
-/>
-<Route
-  path="/batch/:batchId"
-  element={<BatchTracking />}
+        <Route
+          path="/collector"
+          element={<CollectorDashboard />}
+        />
+
+
+        {/* RECYCLER DASHBOARD */}
+        <Route
+          path="/recycler"
+          element={<RecyclerDashboard />}
+        />
+
+
+        {/* ADMIN DASHBOARD */}
+        <Route
+          path="/admin"
+          element={<AdminDashboard />}
+        />
+
+
+        {/* BATCH TRACKING */}
+        <Route
+          path="/batch-tracking"
+          element={<BatchTracking />}
+        />
+
+
+        {/* DYNAMIC BATCH URL */}
+        <Route
+          path="/batch/:batchId"
+          element={<BatchTracking />}
+        />
+        <Route
+  path="/qr-scanner"
+  element={<QRScanner />}
 />
 
       </Routes>
