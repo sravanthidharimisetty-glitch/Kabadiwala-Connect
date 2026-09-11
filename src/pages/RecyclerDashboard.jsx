@@ -1,47 +1,39 @@
-
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './RecyclerDashboard.css'
 
 function RecyclerDashboard() {
   const navigate = useNavigate()
-  const [status, setStatus] = useState(
-  localStorage.getItem('recyclerStatus') || 'Incoming Batch'
-)
 
-useEffect(() => {
-  localStorage.setItem('recyclerStatus', status)
-}, [status])
+  const [status, setStatus] = useState('Batch Received')
 
   const batch = {
-    batchId: 'KC-BATCH-2026-0001',
+    id: 'KC-BATCH-2026-0001',
     pickupId: 'KC-2026-0001',
     material: 'Metal',
     weight: '5 KG',
     value: '₹350',
     collector: 'Verified Collector',
-    location: 'B Mattam, Andhra Pradesh',
-  }
-
-  const handleReceive = () => {
-    setStatus('Received at Recycler')
+    source: 'B Mattam, Andhra Pradesh',
   }
 
   const handleProcessing = () => {
     setStatus('Processing')
   }
 
-  const handleRecycled = () => {
+  const handleCompleted = () => {
     setStatus('Recycling Completed')
   }
 
   return (
     <div className="recycler-page">
 
+      {/* HEADER */}
       <header className="recycler-header">
 
         <div className="recycler-logo">
           <span>♻</span>
+
           <div>
             <strong>Kabadiwala</strong>
             <small>CONNECT</small>
@@ -57,8 +49,11 @@ useEffect(() => {
 
       </header>
 
+
+      {/* MAIN */}
       <main className="recycler-main">
 
+        {/* WELCOME */}
         <section className="recycler-welcome">
 
           <div>
@@ -66,11 +61,11 @@ useEffect(() => {
               RECYCLER DASHBOARD
             </span>
 
-            <h1>Manage your material batches.</h1>
+            <h1>Manage recycling batches.</h1>
 
             <p>
-              Receive collected scrap, track processing
-              and update recycling status.
+              Receive verified material batches, update processing
+              status and maintain a transparent recycling record.
             </p>
           </div>
 
@@ -80,120 +75,126 @@ useEffect(() => {
 
         </section>
 
+
+        {/* STATS */}
         <section className="recycler-stats">
 
           <div className="recycler-stat">
             <span>📦</span>
+
             <div>
               <strong>1</strong>
               <small>Incoming Batch</small>
             </div>
           </div>
 
+
           <div className="recycler-stat">
             <span>⚙️</span>
+
             <div>
               <strong>3</strong>
               <small>Processing</small>
             </div>
           </div>
 
+
           <div className="recycler-stat">
             <span>♻️</span>
+
             <div>
-              <strong>18</strong>
-              <small>Recycled Batches</small>
+              <strong>28</strong>
+              <small>Completed Batches</small>
+            </div>
+          </div>
+
+
+          <div className="recycler-stat">
+            <span>🌱</span>
+
+            <div>
+              <strong>142 KG</strong>
+              <small>Material Recycled</small>
             </div>
           </div>
 
         </section>
 
+
+        {/* GRID */}
         <section className="recycler-grid">
 
-          <div className="batch-details-card">
 
-            <div className="batch-top">
+          {/* BATCH CARD */}
+          <div className="recycler-batch-card">
+
+            <div className="recycler-card-top">
 
               <div>
                 <span className="batch-tag">
-                  INCOMING MATERIAL BATCH
+                  VERIFIED MATERIAL BATCH
                 </span>
 
-                <h2>{batch.batchId}</h2>
+                <h2>{batch.id}</h2>
               </div>
 
-              <span className="incoming-badge">
-                ● Incoming
+              <span className="verified-badge">
+                ✓ Verified
               </span>
 
             </div>
 
-            <div className="material-box">
+
+            {/* MATERIAL */}
+            <div className="recycler-material">
 
               <div className="material-icon">
                 🔩
               </div>
 
               <div>
-                <span>MATERIAL</span>
+                <small>MATERIAL</small>
                 <strong>{batch.material}</strong>
               </div>
 
-              <div className="material-weight">
-                <span>WEIGHT</span>
+              <div>
+                <small>WEIGHT</small>
                 <strong>{batch.weight}</strong>
               </div>
 
             </div>
 
+
+            {/* DETAILS */}
             <div className="recycler-details">
 
-              <div className="recycler-detail">
-                <span>🔗</span>
-                <div>
-                  <small>PICKUP ID</small>
-                  <strong>{batch.pickupId}</strong>
-                </div>
+              <div>
+                <small>PICKUP REFERENCE</small>
+                <strong>{batch.pickupId}</strong>
               </div>
 
-              <div className="recycler-detail">
-                <span>🚛</span>
-                <div>
-                  <small>COLLECTOR</small>
-                  <strong>{batch.collector}</strong>
-                </div>
+              <div>
+                <small>COLLECTOR</small>
+                <strong>{batch.collector}</strong>
               </div>
 
-              <div className="recycler-detail">
-                <span>📍</span>
-                <div>
-                  <small>COLLECTION LOCATION</small>
-                  <strong>{batch.location}</strong>
-                </div>
+              <div>
+                <small>SOURCE</small>
+                <strong>{batch.source}</strong>
               </div>
 
-              <div className="recycler-detail">
-                <span>💰</span>
-                <div>
-                  <small>INDICATIVE VALUE</small>
-                  <strong>{batch.value}</strong>
-                </div>
+              <div>
+                <small>INDICATIVE VALUE</small>
+                <strong>{batch.value}</strong>
               </div>
 
             </div>
 
+
+            {/* ACTIONS */}
             <div className="recycler-actions">
 
-              {status === 'Incoming Batch' && (
-                <button
-                  className="receive-btn"
-                  onClick={handleReceive}
-                >
-                  ✓ Confirm Material Received
-                </button>
-              )}
-
-              {status === 'Received at Recycler' && (
+              {status === 'Batch Received' && (
                 <button
                   className="processing-btn"
                   onClick={handleProcessing}
@@ -202,25 +203,30 @@ useEffect(() => {
                 </button>
               )}
 
+
               {status === 'Processing' && (
                 <button
-                  className="recycled-btn"
-                  onClick={handleRecycled}
+                  className="complete-btn"
+                  onClick={handleCompleted}
                 >
-                  ♻️ Mark as Recycled
+                  ✓ Mark Recycling Completed
                 </button>
               )}
 
+
               {status === 'Recycling Completed' && (
-                <div className="recycling-completed">
+                <div className="recycling-success">
+
                   <span>✓</span>
 
                   <div>
                     <strong>Recycling Completed</strong>
+
                     <small>
                       This material batch has been successfully processed.
                     </small>
                   </div>
+
                 </div>
               )}
 
@@ -228,82 +234,181 @@ useEffect(() => {
 
           </div>
 
+
+          {/* STATUS CARD */}
           <div className="recycler-status-card">
 
-            <span className="recycler-status-label">
-              BATCH STATUS
+            <span className="status-label">
+              RECYCLING STATUS
             </span>
 
-            <h2>Recycling Journey</h2>
+            <h2>Material Journey</h2>
+
 
             <div className="recycler-timeline">
 
-              <div className="recycler-timeline-item active">
-                <span>✓</span>
+              <div className="recycler-timeline-item completed">
+
+                <div className="timeline-circle">
+                  ✓
+                </div>
+
                 <div>
                   <strong>Collected</strong>
-                  <small>Scrap collected from citizen</small>
+                  <small>
+                    Scrap collected from citizen
+                  </small>
                 </div>
+
               </div>
 
-              <div className="recycler-timeline-item active">
-                <span>✓</span>
+
+              <div className="recycler-line"></div>
+
+
+              <div className="recycler-timeline-item completed">
+
+                <div className="timeline-circle">
+                  ✓
+                </div>
+
                 <div>
                   <strong>Collection Centre</strong>
-                  <small>Material received at centre</small>
+                  <small>
+                    Material received at centre
+                  </small>
                 </div>
+
               </div>
 
-              <div className="recycler-timeline-item">
-                <span>3</span>
+
+              <div className="recycler-line"></div>
+
+
+              <div
+                className={`recycler-timeline-item ${
+                  status !== 'Batch Received'
+                    ? 'completed'
+                    : 'current'
+                }`}
+              >
+
+                <div className="timeline-circle">
+                  {status !== 'Batch Received' ? '✓' : '3'}
+                </div>
+
                 <div>
                   <strong>Recycler</strong>
-                  <small>Material received for recycling</small>
+                  <small>
+                    {status === 'Batch Received'
+                      ? 'Batch received for recycling'
+                      : 'Material is being processed'}
+                  </small>
                 </div>
+
               </div>
 
-              <div className="recycler-timeline-item">
-                <span>4</span>
+
+              <div className="recycler-line"></div>
+
+
+              <div
+                className={`recycler-timeline-item ${
+                  status === 'Recycling Completed'
+                    ? 'completed'
+                    : ''
+                }`}
+              >
+
+                <div className="timeline-circle">
+                  {status === 'Recycling Completed' ? '✓' : '4'}
+                </div>
+
                 <div>
                   <strong>Processed</strong>
-                  <small>Recycling completed</small>
+
+                  <small>
+                    {status === 'Recycling Completed'
+                      ? 'Recycling completed successfully'
+                      : 'Waiting for processing'}
+                  </small>
                 </div>
+
               </div>
 
             </div>
 
+
+            {/* CURRENT STATUS */}
             <div className="recycler-current-status">
+
               <small>CURRENT STATUS</small>
-              <strong>● {status}</strong>
+
+              <strong>
+                ● {status}
+              </strong>
+
             </div>
 
           </div>
 
         </section>
 
+
+        {/* TRACEABILITY */}
         <section className="recycler-info">
 
           <div>
             <span>🔐</span>
+
             <div>
-              <strong>Verified Recycling</strong>
+              <strong>Verified Chain</strong>
+
               <p>
-                Material batches are linked to their collection records.
+                Every batch is linked to its collection record
+                for transparent recycling.
               </p>
             </div>
           </div>
 
+
+          <div>
+            <span>📊</span>
+
+            <div>
+              <strong>Impact Records</strong>
+
+              <p>
+                Completed recycling contributes to measurable
+                environmental impact.
+              </p>
+            </div>
+          </div>
+
+
           <div>
             <span>🌱</span>
+
             <div>
-              <strong>Environmental Impact</strong>
+              <strong>Circular Economy</strong>
+
               <p>
-                Every processed batch contributes to measurable recycling impact.
+                Scrap is converted into reusable material through
+                authorised recycling.
               </p>
             </div>
           </div>
 
         </section>
+
+
+        {/* BATCH TRACKING BUTTON */}
+        <button
+          className="tracking-btn"
+          onClick={() => navigate('/batch-tracking')}
+        >
+          🔗 View Digital Batch Tracking
+        </button>
 
       </main>
 

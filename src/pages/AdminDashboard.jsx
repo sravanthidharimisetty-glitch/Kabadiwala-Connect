@@ -1,20 +1,48 @@
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './AdminDashboard.css'
-import { useState } from 'react'
 
 function AdminDashboard() {
-  const [recyclerStatus] = useState(
-    localStorage.getItem('recyclerStatus') || 'Incoming Batch'
-  )
-
-  const isRecycled =
-    recyclerStatus === 'Recycling Completed'
-
   const navigate = useNavigate()
+
+  const [filter, setFilter] = useState('All')
+
+  const materials = [
+    {
+      name: 'Metal',
+      weight: '5 KG',
+      status: 'Recycled',
+      percentage: 82,
+    },
+    {
+      name: 'Plastic',
+      weight: '38 KG',
+      status: 'Processing',
+      percentage: 64,
+    },
+    {
+      name: 'Cardboard',
+      weight: '52 KG',
+      status: 'Recycled',
+      percentage: 91,
+    },
+    {
+      name: 'E-Waste',
+      weight: '18 KG',
+      status: 'Processing',
+      percentage: 48,
+    },
+  ]
+
+  const filteredMaterials =
+    filter === 'All'
+      ? materials
+      : materials.filter((item) => item.status === filter)
 
   return (
     <div className="admin-page">
 
+      {/* HEADER */}
       <header className="admin-header">
 
         <div className="admin-logo">
@@ -38,6 +66,7 @@ function AdminDashboard() {
 
       <main className="admin-main">
 
+        {/* WELCOME SECTION */}
         <section className="admin-welcome">
 
           <div>
@@ -45,257 +74,150 @@ function AdminDashboard() {
               GOVERNMENT / ADMIN DASHBOARD
             </span>
 
-            <h1>
-              Monitor recycling impact.
-            </h1>
+            <h1>Monitor recycling impact.</h1>
 
             <p>
-              Track collections, verified recyclers and environmental
-              impact across the Kabadiwala Connect network.
+              Track collection activity, verified material batches,
+              recycling progress and environmental impact across the network.
             </p>
           </div>
 
-          <div className="admin-avatar">
-            🏛️
+          <div className="admin-icon">
+            📊
           </div>
 
         </section>
 
 
         {/* STATS */}
-
         <section className="admin-stats">
 
-          <div className="admin-stat">
-            <span>♻️</span>
-
-            <div>
-              <strong>18.6 T</strong>
-              <small>Total Recycled</small>
-            </div>
-          </div>
-
-
-          <div className="admin-stat">
+          <div className="admin-stat-card">
             <span>👥</span>
 
             <div>
-              <strong>248</strong>
-              <small>Active Collectors</small>
+              <strong>1,248</strong>
+              <small>Registered Collectors</small>
             </div>
           </div>
 
 
-          <div className="admin-stat">
-            <span>🏭</span>
+          <div className="admin-stat-card">
+            <span>♻️</span>
 
             <div>
-              <strong>32</strong>
-              <small>Verified Recyclers</small>
+              <strong>2,846 KG</strong>
+              <small>Total Scrap Collected</small>
             </div>
           </div>
 
 
-          <div className="admin-stat">
+          <div className="admin-stat-card">
             <span>📦</span>
 
             <div>
-              <strong>1,426</strong>
+              <strong>486</strong>
               <small>Material Batches</small>
+            </div>
+          </div>
+
+
+          <div className="admin-stat-card">
+            <span>🌱</span>
+
+            <div>
+              <strong>1.92 T</strong>
+              <small>CO₂ Impact Reduced</small>
             </div>
           </div>
 
         </section>
 
 
-        {/* LATEST VERIFIED BATCH */}
-
-        {isRecycled && (
-          <section className="latest-batch-card">
-
-            <div className="latest-batch-left">
-
-              <span className="latest-label">
-                LATEST VERIFIED BATCH
-              </span>
-
-              <h2>
-                KC-BATCH-2026-0001
-              </h2>
-
-              <p>
-                Metal • 5 KG • ₹350
-              </p>
-
-            </div>
-
-
-            <div className="latest-batch-middle">
-
-              <span className="latest-success">
-                ✓ Recycling Completed
-              </span>
-
-              <small>
-                Verified recycling record
-              </small>
-
-            </div>
-
-
-            <button
-              className="latest-batch-btn"
-              onClick={() =>
-                navigate('/batch/KC-BATCH-2026-0001')
-              }
-            >
-              View Traceability →
-            </button>
-
-          </section>
-        )}
-
-
-        {/* MAIN GRID */}
-
+        {/* DASHBOARD GRID */}
         <section className="admin-grid">
 
-          <div className="impact-card">
+          {/* MATERIAL ACTIVITY */}
+          <div className="admin-card">
 
-            <div className="card-heading">
+            <div className="admin-card-header">
 
               <div>
-                <span>
-                  ENVIRONMENTAL IMPACT
+                <span className="section-label">
+                  RECYCLING OVERVIEW
                 </span>
 
-                <h2>
-                  Recycling overview
-                </h2>
+                <h2>Material activity</h2>
               </div>
 
-              <span className="verified">
-                ✓ Verified
-              </span>
+              <select
+                value={filter}
+                onChange={(e) => setFilter(e.target.value)}
+              >
+                <option value="All">All</option>
+                <option value="Recycled">Recycled</option>
+                <option value="Processing">Processing</option>
+              </select>
 
             </div>
 
 
-            <div className="impact-list">
+            <div className="material-list">
 
-              <div className="impact-row">
+              {filteredMaterials.map((item) => (
 
-                <div className="impact-icon">
-                  📄
+                <div
+                  className="material-row"
+                  key={item.name}
+                >
+
+                  <div className="material-name">
+
+                    <div className="material-dot">
+                      ♻
+                    </div>
+
+                    <div>
+                      <strong>{item.name}</strong>
+                      <small>{item.weight}</small>
+                    </div>
+
+                  </div>
+
+
+                  <div className="material-progress">
+
+                    <div className="progress-track">
+
+                      <div
+                        className="progress-fill"
+                        style={{
+                          width: `${item.percentage}%`,
+                        }}
+                      />
+
+                    </div>
+
+                    <small>
+                      {item.percentage}%
+                    </small>
+
+                  </div>
+
+
+                  <span
+                    className={
+                      item.status === 'Recycled'
+                        ? 'status-pill recycled'
+                        : 'status-pill processing'
+                    }
+                  >
+                    {item.status}
+                  </span>
+
                 </div>
 
-                <div className="impact-info">
-                  <strong>
-                    Paper & Cardboard
-                  </strong>
-
-                  <small>
-                    6.2 tonnes recycled
-                  </small>
-                </div>
-
-                <strong>
-                  33%
-                </strong>
-
-              </div>
-
-
-              <div className="impact-row">
-
-                <div className="impact-icon">
-                  🧴
-                </div>
-
-                <div className="impact-info">
-                  <strong>
-                    Plastic
-                  </strong>
-
-                  <small>
-                    4.8 tonnes recycled
-                  </small>
-                </div>
-
-                <strong>
-                  26%
-                </strong>
-
-              </div>
-
-
-              <div className="impact-row">
-
-                <div className="impact-icon">
-                  🔩
-                </div>
-
-                <div className="impact-info">
-                  <strong>
-                    Metal
-                  </strong>
-
-                  <small>
-                    3.9 tonnes recycled
-                  </small>
-                </div>
-
-                <strong>
-                  21%
-                </strong>
-
-              </div>
-
-
-              <div className="impact-row">
-
-                <div className="impact-icon">
-                  📱
-                </div>
-
-                <div className="impact-info">
-                  <strong>
-                    E-Waste
-                  </strong>
-
-                  <small>
-                    2.4 tonnes recycled
-                  </small>
-                </div>
-
-                <strong>
-                  13%
-                </strong>
-
-              </div>
-
-
-              <div className="impact-row">
-
-                <div className="impact-icon">
-                  🍾
-                </div>
-
-                <div className="impact-info">
-                  <strong>
-                    Glass & Others
-                  </strong>
-
-                  <small>
-                    1.3 tonnes recycled
-                  </small>
-                </div>
-
-                <strong>
-                  7%
-                </strong>
-
-              </div>
+              ))}
 
             </div>
 
@@ -303,81 +225,40 @@ function AdminDashboard() {
 
 
           {/* NETWORK STATUS */}
+          <div className="admin-card network-card">
 
-          <div className="admin-status-card">
-
-            <span className="admin-status-label">
+            <span className="section-label">
               NETWORK STATUS
             </span>
 
-            <h2>
-              Recycling Network
-            </h2>
+            <h2>Collection network</h2>
 
-
-            <div className="network-item">
-
-              <span>🟢</span>
-
-              <div>
-                <strong>
-                  Collectors
-                </strong>
-
-                <small>
-                  248 active
-                </small>
-              </div>
-
+            <div className="network-circle">
+              <strong>94%</strong>
+              <small>Active</small>
             </div>
 
 
-            <div className="network-item">
-
-              <span>🟢</span>
+            <div className="network-stats">
 
               <div>
-                <strong>
-                  Collection Centres
-                </strong>
-
-                <small>
-                  14 operational
-                </small>
+                <strong>1,174</strong>
+                <span>Active Collectors</span>
               </div>
 
-            </div>
-
-
-            <div className="network-item">
-
-              <span>🟢</span>
-
               <div>
-                <strong>
-                  Verified Recyclers
-                </strong>
-
-                <small>
-                  32 connected
-                </small>
+                <strong>74</strong>
+                <span>Offline</span>
               </div>
 
-            </div>
-
-
-            <div className="network-item">
-
-              <span>🟢</span>
+              <div>
+                <strong>86</strong>
+                <span>Collection Centres</span>
+              </div>
 
               <div>
-                <strong>
-                  Digital Traceability
-                </strong>
-
-                <small>
-                  100% batch linked
-                </small>
+                <strong>24</strong>
+                <span>Verified Recyclers</span>
               </div>
 
             </div>
@@ -387,79 +268,185 @@ function AdminDashboard() {
         </section>
 
 
-        {/* IMPACT BOXES */}
+        {/* ENVIRONMENTAL IMPACT */}
+        <section className="impact-card">
 
-        <section className="admin-bottom">
+          <div className="impact-content">
 
-          <div className="admin-impact-box">
+            <span className="section-label">
+              ENVIRONMENTAL IMPACT
+            </span>
+
+            <h2>
+              Turning scrap into measurable impact.
+            </h2>
+
+            <p>
+              Verified collection and recycling records help
+              authorities understand waste flows and measure
+              environmental outcomes.
+            </p>
+
+          </div>
+
+
+          <div className="impact-metrics">
+
+            <div>
+              <strong>2.84 T</strong>
+              <span>Waste Diverted</span>
+            </div>
+
+            <div>
+              <strong>1.92 T</strong>
+              <span>CO₂ Reduced</span>
+            </div>
+
+            <div>
+              <strong>486</strong>
+              <span>Traceable Batches</span>
+            </div>
+
+          </div>
+
+        </section>
+
+
+        {/* RECENT ACTIVITY */}
+        <section className="admin-card activity-card">
+
+          <div className="admin-card-header">
+
+            <div>
+              <span className="section-label">
+                RECENT ACTIVITY
+              </span>
+
+              <h2>Latest network updates</h2>
+            </div>
+
+            <span className="live-indicator">
+              ● LIVE DEMO
+            </span>
+
+          </div>
+
+
+          <div className="activity-list">
+
+            <div className="activity-row">
+
+              <span>♻️</span>
+
+              <div>
+                <strong>
+                  Batch KC-BATCH-2026-0001 recycled
+                </strong>
+
+                <small>
+                  Metal · 5 KG · Verified Recycler
+                </small>
+              </div>
+
+              <time>
+                Just now
+              </time>
+
+            </div>
+
+
+            <div className="activity-row">
+
+              <span>📦</span>
+
+              <div>
+                <strong>
+                  New material batch received
+                </strong>
+
+                <small>
+                  Cardboard · Collection Centre
+                </small>
+              </div>
+
+              <time>
+                12 min ago
+              </time>
+
+            </div>
+
+
+            <div className="activity-row">
+
+              <span>👤</span>
+
+              <div>
+                <strong>
+                  New collector registered
+                </strong>
+
+                <small>
+                  Collector verification pending
+                </small>
+              </div>
+
+              <time>
+                28 min ago
+              </time>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        {/* INFO CARDS */}
+        <section className="admin-info">
+
+          <div>
+
+            <span>🔐</span>
+
+            <div>
+              <strong>Verified Records</strong>
+
+              <p>
+                Collection and recycling events are digitally recorded.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div>
+
+            <span>📍</span>
+
+            <div>
+              <strong>Network Visibility</strong>
+
+              <p>
+                Authorities can monitor collection activity and material flow.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div>
 
             <span>🌱</span>
 
             <div>
-              <strong>
-                CO₂ Impact
-              </strong>
+              <strong>Impact Measurement</strong>
 
               <p>
-                Estimated <b>12.4 tonnes</b> of CO₂ emissions
-                avoided through verified recycling.
+                Environmental outcomes can be measured from verified data.
               </p>
             </div>
 
           </div>
-
-
-          <div className="admin-impact-box">
-
-            <span>💰</span>
-
-            <div>
-              <strong>
-                Collector Earnings
-              </strong>
-
-              <p>
-                ₹8.7 lakh generated through recorded scrap
-                transactions.
-              </p>
-            </div>
-
-          </div>
-
-
-          <div className="admin-impact-box">
-
-            <span>🔗</span>
-
-            <div>
-              <strong>
-                Traceable Materials
-              </strong>
-
-              <p>
-                Every verified batch can be traced from collection
-                to recycling.
-              </p>
-            </div>
-
-          </div>
-
-        </section>
-
-
-        {/* FOOTER */}
-
-        <section className="admin-footer-note">
-
-          <strong>
-            Trust Layer for Informal Recycling
-          </strong>
-
-          <p>
-            Kabadiwala Connect creates a transparent digital record
-            connecting citizens, collectors, collection centres and
-            authorised recyclers.
-          </p>
 
         </section>
 

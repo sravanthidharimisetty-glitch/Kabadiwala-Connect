@@ -159,8 +159,8 @@ function BatchTracking() {
               <div className="qr-placeholder">
 
                 <QRCode
-                  value={`${window.location.origin}/batch/${batch.batchId}`}
-                  size={150}
+                value={`${window.location.origin}/batch-tracking`}
+                  size={190}
                 />
 
                 <small>
