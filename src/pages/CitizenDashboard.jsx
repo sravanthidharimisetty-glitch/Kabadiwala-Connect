@@ -1,11 +1,14 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import './CitizenDashboard.css'
 
 function CitizenDashboard() {
   const navigate = useNavigate()
+  const location = useLocation()
 
-  const [material, setMaterial] = useState('')
+  const [material, setMaterial] = useState(
+    location.state?.detectedMaterial || ''
+  )
   const [weight, setWeight] = useState('')
   const [pickupRequested, setPickupRequested] = useState(false)
 
@@ -22,20 +25,20 @@ function CitizenDashboard() {
       ? Number(weight) * prices[material]
       : 0
 
-const handlePickup = () => {
-  if (!material || !weight) {
-    alert('Please select scrap material and enter weight.')
-    return
-  }
+  const handlePickup = () => {
+    if (!material || !weight) {
+      alert('Please select scrap material and enter weight.')
+      return
+    }
 
-  navigate('/pickup-details', {
-    state: {
-      material,
-      weight,
-      estimatedPrice,
-    },
-  })
-}
+    navigate('/pickup-details', {
+      state: {
+        material,
+        weight,
+        estimatedPrice,
+      },
+    })
+  }
 
   return (
     <div className="citizen-page">
@@ -147,6 +150,18 @@ const handlePickup = () => {
               Select your material and enter its approximate weight.
               We'll calculate an indicative value for you.
             </p>
+
+            {/* AI BUTTON */}
+            <button
+              className="ai-scrap-btn"
+              onClick={() => navigate('/ai-scrap-scanner')}
+            >
+              🤖 Identify Scrap with AI
+            </button>
+
+            <div className="ai-divider">
+              <span>OR SELECT MANUALLY</span>
+            </div>
 
             {/* MATERIAL */}
             <label>

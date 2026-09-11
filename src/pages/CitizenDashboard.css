@@ -480,3 +480,44 @@
     margin-left: 0;
   }
 }
+.ai-scrap-btn {
+  width: 100%;
+  margin: 8px 0 18px;
+  padding: 13px 18px;
+  border: 1px solid #b9d9c3;
+  border-radius: 11px;
+  background: #eef8f1;
+  color: #1f7a45;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.ai-scrap-btn:hover {
+  background: #e2f2e7;
+  transform: translateY(-1px);
+}
+
+.ai-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 18px;
+  color: #8a968f;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+}
+
+.ai-divider::before,
+.ai-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #e1e8e3;
+}
+
+.ai-divider span {
+  white-space: nowrap;
+}

@@ -9,6 +9,7 @@ import BatchTracking from './pages/BatchTracking'
 import AdminDashboard from './pages/AdminDashboard'
 import Login from './pages/Login'
 import QRScanner from './pages/QRScanner'
+import AIScrapScanner from './pages/AIScrapScanner'
 
 
 function Home() {
@@ -544,6 +545,10 @@ function App() {
           path="/citizen"
           element={<CitizenDashboard />}
         />
+        <Route
+  path="/ai-scrap-scanner"
+  element={<AIScrapScanner />}
+/>
 
 
         {/* PICKUP DETAILS */}
